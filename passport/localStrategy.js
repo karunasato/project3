@@ -6,6 +6,7 @@ const strategy = new LocalStrategy(
 	},
 	function(username, password, done) {
 		db.User.findOne({ 'username': username }, (err, userMatch) => {
+			console.log(userMatch)
 			if (err) {
 				return done(err);
 			}

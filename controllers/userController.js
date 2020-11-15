@@ -17,6 +17,7 @@ module.exports = {
   },
   register: (req, res) => {
     const { username, password, email } = req.body;
+    console.log("WORKING! ", username, password, email)
     // ADD VALIDATION
     db.User.findOne({ username: username }, (err, userMatch) => {
       if (userMatch) {
@@ -31,7 +32,8 @@ module.exports = {
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
-        return res.json(savedUser);
+        const { password, ...user } = savedUser._doc;
+        return res.json(user);
       });
     });
   },
@@ -44,8 +46,17 @@ module.exports = {
       return res.json({ msg: "no user to log out!" });
     }
   },
-  auth: function (req, res, next) {
-    next();
+  auth: function (req, res) {
+    if (req.user) {
+      const user = JSON.parse(JSON.stringify(req.user)); // hack
+      const cleanUser = Object.assign({}, user);
+      if (cleanUser) {
+        delete cleanUser.password;
+      }
+      res.json(cleanUser);
+    }else{
+      res.json("no user logged in!")
+    }
   },
   authenticate: (req, res) => {
     const user = JSON.parse(JSON.stringify(req.user)); // hack
@@ -53,6 +64,6 @@ module.exports = {
     if (cleanUser) {
       delete cleanUser.password;
     }
-    res.json({ user: cleanUser });
+    res.json(cleanUser);
   },
 };
