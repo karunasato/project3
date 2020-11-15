@@ -6,15 +6,9 @@ mongoose.promise = Promise;
 const userSchema = new Schema({
   username: { type: String, unique: false, required: false },
   password: { type: String, unique: false, required: false },
-  email: { type: String, unique: true, required: true },
-  users: [
-    {
-      // Store ObjectIds in the array
-      type: Schema.Types.ObjectId,
-
-    },
-  ],
+  email: { type: String, unique: true, required: true }
 });
+
 // Define schema methods
 userSchema.methods = {
   checkPassword: function (inputPassword) {
