@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { Song } = require(".");
 const Schema = mongoose.Schema;
 
 const songSchema = new Schema({
