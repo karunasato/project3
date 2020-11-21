@@ -3,7 +3,7 @@ import { Redirect, Link } from "react-router-dom";
 import { Container, Row, Col } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
 import AUTH from "../../utils/AUTH";
-// import Nav from "../../components/Nav/Nav";
+
 
 
 function SignupForm() {
