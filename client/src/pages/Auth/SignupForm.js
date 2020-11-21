@@ -31,7 +31,7 @@ function SignupForm() {
             password: userObject.password,
         }).then(response => {
             if (!response.data.errmsg) {
-                setRedirectTo('/Otp');
+                setRedirectTo('/login');
             } else {
             }
         });
