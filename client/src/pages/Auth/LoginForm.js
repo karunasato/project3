@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Container, Row, Col } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form/Index";
+import AUTH from "../../utils/AUTH";
 
 
-function LoginForm({ login }) {
+function LoginForm({ login, register }) {
   const [userObject, setUserObject] = useState({
     username: "",
     password: "",
+    email: ""
   });
   const [redirectTo, setRedirectTo] = useState(null);
 
@@ -20,8 +22,19 @@ function LoginForm({ login }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(userObject.username)
+    console.log(userObject.password)
     login(userObject.username, userObject.password);
     setRedirectTo("/");
+  };
+  const handleRegister = (event) => {
+    console.log(userObject.username)
+    console.log(userObject.password)
+    console.log(userObject.email)
+
+    event.preventDefault();
+    register(userObject.username, userObject.password, userObject.email);
+    setRedirectTo("/api/user/signup");
   };
 
   if (redirectTo) {
@@ -54,7 +67,17 @@ function LoginForm({ login }) {
                     placeholder="password"
                     className="form__field"
                   />
-                  <Link to="/signup">Register</Link>
+                  {/* <label class="form__label" htmlFor="password">Password: </label> */}
+                  <Input
+                    type="email"
+                    name="email"
+                    value={userObject.email}
+                    onChange={handleChange}
+                    placeholder="email"
+                    className="form__field"
+                  />
+                  <FormBtn onClick={handleRegister}>REGISTER</FormBtn>
+
                   <FormBtn onClick={handleSubmit}>LOGIN</FormBtn>
                 </form>
                 {/* </Card> */}
