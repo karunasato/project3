@@ -64,6 +64,7 @@ import Navbarcomponent from "./components/Nav/Index";
       password: password,
       email: email
     }).then((response) => {
+      console.log(response.status)
       if (response.status === 200) {
         // update the state
         setLoggedIn(true);
