@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Container, Row, Col } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form/Index";
-import AUTH from "../../utils/AUTH";
+// import AUTH from "../../utils/AUTH";
+// import Nav from "../../components/Nav/Nav";
 
 
 function LoginForm({ login, register }) {
@@ -76,8 +77,7 @@ function LoginForm({ login, register }) {
                     placeholder="email"
                     className="form__field"
                   />
-                  <FormBtn onClick={handleRegister}>REGISTER</FormBtn>
-
+                  <Link to="/signup">Register</Link>
                   <FormBtn onClick={handleSubmit}>LOGIN</FormBtn>
                 </form>
                 {/* </Card> */}
