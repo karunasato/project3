@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import LoginForm from "./pages/Auth/LoginForm";
 import SignupForm from "./pages/Auth/SignupForm";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Index";
 import Footer from "./components/Footer";
 import NoMatch from "./pages/NoMatch";
 import "bootstrap/dist/css/bootstrap.min.css";
