@@ -24,6 +24,7 @@
     "caniuse-lite": "1.0.30000974"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^2.7.0",
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
@@ -48,12 +49,8 @@
     "reactstrap": "^8.7.1",
     "yarn-install": "^1.0.0"
   },
-
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
- }
-
-} 
-
-
+  }
+}

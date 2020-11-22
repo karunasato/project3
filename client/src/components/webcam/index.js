@@ -1,42 +1,37 @@
 import React from "react";
-import Webcam from "react-webcam";
-//import Webcam from "react-webcam";
+import Webcam from './webcam'
 
-function WebcamModule() {
-    const videoConstraints = {
-        //width: 640,
-        //height: 480,
-        //facingMode: "user"
-      };
+class WebcamModule extends React.Component {
+  constructor(props) {
+    super(props);
+    this.textRef = React.createRef();
+    this.webcamRef = React.createRef();
+  }
+
+  componentDidMount(){
+    const webcam = new Webcam(this.webcamRef);
     
-    const webcamRef = React.useRef(null);
-       
-    const capture = React.useCallback(
-        () => {
-            const imageSrc = webcamRef.current.getScreenshot();
-        },
-          [webcamRef]
-    );
+    async function init() {
+      console.log(webcam)
+      await webcam.setup();
+    }
+    init();
+  }
 
-    return (
-      <div className="card">
-        <div className="card-body">
-          <p className="card-text">
-            Webcam Module Loaded
-          </p>
-          <Webcam 
-            audio={false}
-            height={720}
-            width={1280}
-            videoConstraints={videoConstraints}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-            />
+
+    render(){
+      return (
+      <div>
+        <h2>Webcam Module Loaded</h2>
+        <p ref={this.textRef}>this.textref Testing</p>
+        <div>
+            <video autoPlay muted src="" ref = {this.webcamRef} width="224" height = "224"></video>
         </div>
-        <button onClick={capture}>Capture photo</button>
+        <video></video>
       </div>
+      )
+    }  
 
-    );
   }
   
   export default WebcamModule;
