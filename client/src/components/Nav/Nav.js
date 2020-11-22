@@ -6,7 +6,7 @@ import { Nav, Navbar, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, Dr
 const Navbarcomponent = (props) => {
   let greeting;
   let userStatus;
-  const [user, setUser] = useState();
+  const [setUser] = useState();
   useEffect(() => {
     AUTH.getUser().then((response) => {
       if (!!response.data.user) {

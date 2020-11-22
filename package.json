@@ -45,6 +45,15 @@
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.1",
     "react-webcam": "^5.2.1",
-    "reactstrap": "^8.7.1"
-  }
-}
+    "reactstrap": "^8.7.1",
+    "yarn-install": "^1.0.0"
+  },
+
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+ }
+
+} 
+
+

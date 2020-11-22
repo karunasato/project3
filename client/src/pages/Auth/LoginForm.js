@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Container, Row, Col } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form/Index";
-// import AUTH from "../../utils/AUTH";
-// import Nav from "../../components/Nav/Nav";
+import AUTH from "../../utils/AUTH";
+import Nav from "../../components/Nav/Nav";
 
 
 function LoginForm({ login, register }) {
@@ -28,15 +28,15 @@ function LoginForm({ login, register }) {
     login(userObject.username, userObject.password);
     setRedirectTo("/");
   };
-  const handleRegister = (event) => {
-    console.log(userObject.username)
-    console.log(userObject.password)
-    console.log(userObject.email)
+  // const handleRegister = (event) => {
+  //   console.log(userObject.username)
+  //   console.log(userObject.password)
+  //   console.log(userObject.email)
 
-    event.preventDefault();
-    register(userObject.username, userObject.password, userObject.email);
-    setRedirectTo("/api/user/signup");
-  };
+  //   event.preventDefault();
+  //   register(userObject.username, userObject.password, userObject.email);
+  //   setRedirectTo("/api/user/signup");
+  // };
 
   if (redirectTo) {
     return <Redirect to={{ pathname: redirectTo }} />;
