@@ -8,6 +8,7 @@ import NoMatch from "./pages/NoMatch";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AUTH from "./utils/AUTH";
 import Home from "./pages/Home";
+import Prediction from "./pages/Prediction/index"
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={() => <LoginForm login={login} />} />
             <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/prediction" component={Prediction} />
           </Switch>
         </div>
       )}
