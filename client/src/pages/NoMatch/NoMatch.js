@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Container } from "../../components/Grid/Index";
+import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron/Index";
 
 const NoMatch = () => (
