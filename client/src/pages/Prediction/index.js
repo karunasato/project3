@@ -1,40 +1,18 @@
 import React, {useRef, useState} from "react";
 import "./index.css";
-import * as tf from '@tensorflow/tfjs';
 import * as handpose from '@tensorflow-models/handpose';
 import Webcam from 'react-webcam';
 import {drawHands} from '../../utils/draw'
 import * as fp from 'fingerpose'
 import thumbsDownGesture from "./Gestures/thumbsDown";
 import ThumbsUpGesture from "./Gestures/thumbsUp";
-
-
-
-// Hand Pose Estimation
-////////////////////////////////
-// 1. Install dependencies DONE
-// 2. Import dependencies DONE
-// 3. Setup webcam and canvas DONE
-// 4. Define references to those DONE
-// 5. Load handpose DONE
-// 6. Detect function DONE
-// 7. Drawing utilities 
-// 8. Draw functions 
-
-// Finger Pose Recognition
-/////////////////////////////
-// 0. Install fingerpose npm install fingerpose DONE
-// 1. Add Use State DONE
-// 2. Import emojis and finger pose import * as fingerpose from "fingerpose"; DONE
-// 3. Setup hook and emoji object
-// 4. Update detect function for gesture handling
-// 5. Add emoji display to the screen
-
+import SONGS from "../../utils/SONGS"
 
 function Prediction() {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
     const[pose, setPose] = useState(null);
+    const[song, setSong] = useState(null);
 
     const GE = new fp.GestureEstimator([
       fp.Gestures.VictoryGesture,
@@ -43,6 +21,28 @@ function Prediction() {
       ThumbsUpGesture,
     ]);
     
+    const getSong = () => {
+      console.log('getting songs')
+
+      if(pose === "thumbs_up"){
+        SONGS.getSongs("Happy Song").then((response) => {
+          if (response.status === 200) {
+            console.log(response.data[0].href)
+            setSong(response.data[0].href)
+            console.log(song)
+          }
+        });
+      }
+      else if(pose === "thumbs_down"){
+        SONGS.getSongs("Sad Song").then((response) => {
+          if (response.status === 200) {
+            console.log(response.data[0].href)
+            setSong(response.data[0].href)
+            console.log(song)
+          }
+        });
+      }
+    }
 
     const loadHandpose = async () => {
       const handNet = await handpose.load()
@@ -65,6 +65,9 @@ function Prediction() {
         const video = webcamRef.current.video;
         const videoWidth = webcamRef.current.video.videoWidth;
         const videoHeight = webcamRef.current.video.videoHeight;
+
+        console.log(window.innerWidth)
+
 
         //set video height and width
         webcamRef.current.video.width = videoWidth;
@@ -104,7 +107,7 @@ function Prediction() {
     loadHandpose();
 
     return (
-        <main>
+        <div>
             <section className="header-container">
                 <div className="mood-swing" size="size md-6">
                     <span className="header" id="mood">
@@ -116,33 +119,36 @@ function Prediction() {
                 </div>
                 <p id="feeling">Hello from the prediciton page</p>
                 <p>I see a {pose} </p>
-                <Webcam ref = {webcamRef}
+                <Webcam videoConstraints = {{
+                  width: window.innerWidth/2,
+                }}
+                ref = {webcamRef}
                 style = {{
-                  position:"absolute",
-                  marginLeft: "auto",
-                  marginRight: "auto",
+                  //position:"absolute",
+                  //marginLeft: "auto",
+                  //marginRight: "auto",
                   left:0,
                   right:0,
                   textAlign:"center",
                   zIndex:9,
-                  width:640,
-                  height:480,
                 }}/>
                 <canvas ref = {canvasRef}
                 style = {{
                   position:"absolute",
-                  marginLeft: "auto",
-                  marginRight: "auto",
+                  //marginLeft: "auto",
+                  //marginRight: "auto",
                   left:0,
                   right:0,
                   textAlign:"center",
                   zIndex:9,
-                  width:640,
-                  height:480,
                 }}/>
 
             </section>
-        </main>
+            <button onClick={getSong}>Change My Mood</button>
+            <h2>{song}</h2>
+            <iframe width="560" height="315" src={song} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
     );
 }
 
