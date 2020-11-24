@@ -3,7 +3,6 @@ import { Redirect, Link } from "react-router-dom";
 import { Container, Row, Col } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form/Index";
 import AUTH from "../../utils/AUTH";
-import WebcamModule from "../../components/webcam";
 // import Nav from "../../components/Nav/Nav";
 
 
@@ -91,7 +90,6 @@ function SignupForm() {
                                 />
                                 <Link to="/login">Login</Link>
                                 <FormBtn onClick={handleSubmit}>Register</FormBtn>
-                                <WebcamModule></WebcamModule>
                             </form>
                         </Col>
                         <Col size="md-3"></Col>
