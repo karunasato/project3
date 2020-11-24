@@ -1,0 +1,41 @@
+nav .navbar {
+  background-color: black;
+}
+
+.navbar h1{
+  font-family: 'Trebuchet MS' !important;
+  font-weight: bold;
+  margin: 20 px;
+  text-align: center;
+  background: rgb(23, 68, 88);
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.navbar-brand{
+  color: #ffffff !important;
+}
+
+.navbar-brand {
+  justify-content: right;
+}
+.navbar-nav {
+  flex-direction: row !important;
+}
+
+.nav-item{
+  margin: 10px;
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .navbar h1 {
+      width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-item {
+      width: 50%;
+  }
+}
