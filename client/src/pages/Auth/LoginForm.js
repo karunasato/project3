@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { Container, Row, Col } from "../../components/Grid";
-import { Input, FormBtn } from "../../components/Form/Index";
+import { Input, FormBtn } from "../../components/Form";
 
 
 
