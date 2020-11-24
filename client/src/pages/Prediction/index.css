@@ -38,7 +38,11 @@
       font-size: 9.5vw;
     }
 
-  
+#video-stream{
+    
+        width: 75%;
+    
+}
 
 /* EXPLANATION CONTAINER */
 /* .welcome-container {

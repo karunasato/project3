@@ -24,15 +24,7 @@
     "caniuse-lite": "1.0.30000974"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.13",
-    "@tensorflow-models/coco-ssd": "^2.1.0",
     "@tensorflow-models/handpose": "0.0.6",
-    "@tensorflow-models/mobilenet": "^2.0.4",
     "@tensorflow/tfjs": "^2.7.0",
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
