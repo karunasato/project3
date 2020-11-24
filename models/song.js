@@ -7,9 +7,7 @@ const songSchema = new Schema({
     type: String,
     default: "",
     unique: true
-  },
+  }
 });
-
 const Song = mongoose.model("Song", songSchema);
-
 module.exports = Song;
