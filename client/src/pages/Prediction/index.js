@@ -1,6 +1,5 @@
 import React, {useRef, useState} from "react";
 import "./index.css";
-import * as tf from '@tensorflow/tfjs';
 import * as handpose from '@tensorflow-models/handpose';
 import Webcam from 'react-webcam';
 import {drawHands} from '../../utils/draw'

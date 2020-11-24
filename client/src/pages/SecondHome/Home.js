@@ -1,10 +1,9 @@
-import Input from "../Input";
-import Button from "../Button";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
 import API from "../../utils/API";
-import { SongList, SongListItem } from "../SongList";
-import { Container, Row, Col } from "../Grid";
+import { SongList, SongListItem } from "../../components/SongList/index";
+import { Container, Row, Col } from "../../components/Grid";
 import React, { useState } from "react";
-import WebcamModule from "../webcam/index";
 
 function Home() {
     const [songs, setSongs] = useState([]);
@@ -27,7 +26,6 @@ function Home() {
   
   return (
     <div>
-      <WebcamModule /><br></br>
       <Container>
         <Row>
           <Col size="md-12">

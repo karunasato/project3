@@ -8,7 +8,8 @@ import NoMatch from "./pages/NoMatch";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AUTH from "./utils/AUTH";
 import Home from "./pages/Home";
-import Prediction from "./pages/Prediction/index"
+import Prediction from "./pages/Prediction/index";
+import HappySongs from "./pages/HappySongs/HappySongs";
 
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
             <Route exact path="/login" component={() => <LoginForm login={login} />} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/prediction" component={Prediction} />
+            <Route exact path="/happysongs" component={HappySongs} />
           </Switch>
         </div>
       )}
