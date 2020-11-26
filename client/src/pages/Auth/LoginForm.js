@@ -25,7 +25,7 @@ function LoginForm({ login, register }) {
     console.log(userObject.username)
     console.log(userObject.password)
     login(userObject.username, userObject.password);
-    setRedirectTo("/");
+    setRedirectTo("/prediction");
   };
   // const handleRegister = (event) => {
   //   console.log(userObject.username)
