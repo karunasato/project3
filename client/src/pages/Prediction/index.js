@@ -145,7 +145,7 @@ function Prediction() {
 
             </section>
             <button onClick={getSong}>Change My Mood</button>
-            <h2>{song}</h2>
+
             <iframe width="560" height="315" src={song} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         </div>

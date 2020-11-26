@@ -10,7 +10,7 @@ const Navbarcomponent = (props) => {
   useEffect(() => {
     AUTH.getUser().then((response) => {
       if (!!response.data.user) {
-        setUser(response.data.user._id);
+        setUser(response.data.username._id);
       }
     })
   }, []);
@@ -18,10 +18,10 @@ const Navbarcomponent = (props) => {
   const toggleNavbar = () => setCollapsed(!collapsed);
   if (props.user === null || props.user === undefined) {
     greeting = <p id="hello">Hello guest</p>;
-  } else if (props.user.firstName) {
+  } else if (props.user) {
     greeting = (
       <Fragment>
-        Welcome back, <strong>{props.user.firstName}</strong>
+        Welcome back, <strong>{props.user}</strong>
       </Fragment>
     );
   } else if (props.user.username || props.user === undefined) {

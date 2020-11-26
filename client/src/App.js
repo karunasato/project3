@@ -25,9 +25,9 @@ function App() {
 
   useEffect(() => {
     AUTH.getUser().then((response) => {
-      if (!!response.data.user) {
+      if (!!response.data.username) {
         setLoggedIn(true);
-        setUser(response.data.user);
+        setUser(response.data.username);
       } else {
         setLoggedIn(false);
         setUser(null);
@@ -56,7 +56,7 @@ function App() {
       if (response.status === 200) {
         // update the state
         setLoggedIn(true);
-        setUser(response.data.user);
+        setUser(response.data.username);
       }
     });
   };
@@ -69,7 +69,8 @@ function App() {
         <div>
           <Nav user={user} logout={logout} />
           <Switch>
-            <Route exact path="/app" component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/prediction" component={Prediction} />
             <Route component={NoMatch} />
           </Switch>
           <Footer />
@@ -84,7 +85,6 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={() => <LoginForm login={login} />} />
             <Route exact path="/signup" component={SignupForm} />
-            <Route exact path="/prediction" component={Prediction} />
           </Switch>
           <Footer />
         </div>

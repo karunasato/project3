@@ -26,7 +26,7 @@ function SignupForm() {
         
         AUTH.signup({
             username: userObject.username,
-            email: '',
+            email: userObject.email,
             password: userObject.password,
         }).then(response => {
             if (!response.data.errmsg) {
