@@ -22,12 +22,27 @@
     font-size: 5.5rem;
 }
 
+.welcome {
+    color: #4e6a7c;
+    margin-left: 470px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
 
+iframe {
+    margin-left: 45px;
+}
 
+.btn {
+    background-color:   rgb(80, 140, 150, 0.973);
+    margin-bottom: 20px;
+}
 
-
-
-
+p {
+    color: #6757a0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
 
 @media only screen and (max-width:760px) {
     body {

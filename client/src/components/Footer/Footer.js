@@ -13,6 +13,8 @@ function Footer() {
           left: "0",
           width: "100%",
           flexShrink: "0",
+          marginTop: "200px",
+          marginBottom: "120px"
         }}
       >
         <div className="footer-container">

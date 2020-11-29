@@ -108,31 +108,39 @@ function Prediction() {
 
     return (
         <div>
-            <section className="header-container">
-                <div className="mood-swing" size="size md-6">
-                    <span className="header" id="mood">
-                        Mood
-          </span>
-                    <span className="header" id="swing">
-                        Swing
-          </span>
-                </div>
-                <p id="feeling">Hello from the prediciton page</p>
+          <section className="header-container">
+              <div className="mood-swing" size="size md-6">
+                  <span className="header" id="mood">
+                      Mood
+                  </span>
+                  <span className="header" id="swing">
+                      Swing
+                  </span>
+              </div>
+       
+            <div class="container">
+              <div class="row">
+               <div class="col-md-4" >
                 <p>I see a {pose} </p>
                 <Webcam videoConstraints = {{
-                  width: window.innerWidth/2,
+                  width: 360,
+                  height: 280,
                 }}
                 ref = {webcamRef}
+
+            
                 style = {{
                   //position:"absolute",
                   //marginLeft: "auto",
                   //marginRight: "auto",
+                  backgroundcolor:  "ae7eb8",
                   left:0,
                   right:0,
                   textAlign:"center",
                   zIndex:9,
                 }}/>
                 <canvas ref = {canvasRef}
+                
                 style = {{
                   position:"absolute",
                   //marginLeft: "auto",
@@ -142,12 +150,20 @@ function Prediction() {
                   textAlign:"center",
                   zIndex:9,
                 }}/>
-
+                </div>
+                
+                <div class="col-md-8" >
+                <button type="button" className="btn btn-primary" onClick={getSong}>Change My Mood</button>
+ 
+                <iframe width="550" height="315" src={song} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+         
+          </div>
+                </div>
             </section>
-            <button onClick={getSong}>Change My Mood</button>
-
-            <iframe width="560" height="315" src={song} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+            
+          
         </div>
     );
 }
