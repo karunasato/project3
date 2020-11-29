@@ -8,19 +8,19 @@ mongoose.connect(
 const songSeed = [
   {
     title: "Sad Song",
-    href: "https://www.youtube.com/embed/zdngjh5cy5E",
+    href: "https://www.youtube.com/embed/zdngjh5cy5E?autoplay=1",
   },
   {
     title: "Sad Song",
-    href: "https://www.youtube.com/embed/6rvEKMwkOYo",
+    href: "https://www.youtube.com/embed/6rvEKMwkOYo?autoplay=1",
   },
   {
     title: "Happy Song",
-    href: "https://www.youtube.com/embed/vP_Bi4z65Wk",
+    href: "https://www.youtube.com/embed/vP_Bi4z65Wk?autoplay=1",
   },
   {
     title: "Happy Song",
-    href: "https://www.youtube.com//embed/2zToEPpFEN8",
+    href: "https://www.youtube.com//embed/2zToEPpFEN8?autoplay=1",
   }
 ];
 db.Song

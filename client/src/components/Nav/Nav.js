@@ -21,13 +21,15 @@ const Navbarcomponent = (props) => {
   } else if (props.user) {
     greeting = (
       <Fragment>
-        Welcome back, <strong>{props.user}</strong>
+        Welcome, <strong>{props.user}</strong><br></br>
+        Hello from the prediction page 
       </Fragment>
     );
   } else if (props.user.username || props.user === undefined) {
     greeting = (
       <Fragment>
-        Welcome back, <strong>{props.user.username} </strong>
+        Welcome back, <strong>{props.user.username} </strong><br></br>
+        Hello from the prediction page 
       </Fragment>
     );
   }

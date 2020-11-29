@@ -16,18 +16,34 @@
 } */
 
 .header {
-    color: #F8DACC;
+    color: #eea8a5;
     font-size: 90px;
     font-weight: bold;
     font-size: 5.5rem;
+    margin-top: 200px;
 }
 
+#mood {
+    color:#e774dc; 
+    margin-left: 10px;
+}
 
+#swing {
+    color: rgba(132, 173, 173, 0.973);
+    margin-left: 17px;
+}
 
+body {
+    background-color: #f7ebf3;
+    
+}
 
+#feeling {
+    color: rgba(17, 80, 119, 0.973);
+    font-size: large;
+    margin-left: 17px;
 
-
-
+}
 
 @media only screen and (max-width:760px) {
     body {
