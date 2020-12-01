@@ -8,11 +8,16 @@ import thumbsDownGesture from "./Gestures/thumbsDown";
 import ThumbsUpGesture from "./Gestures/thumbsUp";
 import SONGS from "../../utils/SONGS"
 
+
+
+
+
 function Prediction() {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
     const[pose, setPose] = useState(null);
     const[song, setSong] = useState(null);
+    
 
     const GE = new fp.GestureEstimator([
       fp.Gestures.VictoryGesture,
@@ -23,12 +28,19 @@ function Prediction() {
     
     const getSong = () => {
       console.log('getting songs')
-
+      
+      
       if(pose === "thumbs_up"){
+        //db.yourCollectionName.aggregate([{$sample:{size:1}}]);
+        
         SONGS.getSongs("Happy Song").then((response) => {
+         
           if (response.status === 200) {
             console.log(response.data[0].href)
+            //let random = 
             setSong(response.data[0].href)
+            //setSong(response.data[any].href)
+            //db.song.aggregate([{$sample:{size:1}}]);
             console.log(song)
           }
         });
@@ -118,9 +130,9 @@ function Prediction() {
                   </span>
               </div>
        
-            <div class="container">
-              <div class="row">
-               <div class="col-md-4" >
+            <div className="container">
+              <div className="row">
+               <div className="col-md-4" >
                 <p>I see a {pose} </p>
                 <Webcam videoConstraints = {{
                   width: 360,
@@ -128,11 +140,7 @@ function Prediction() {
                 }}
                 ref = {webcamRef}
 
-            
                 style = {{
-                  //position:"absolute",
-                  //marginLeft: "auto",
-                  //marginRight: "auto",
                   backgroundcolor:  "ae7eb8",
                   left:0,
                   right:0,
@@ -143,8 +151,6 @@ function Prediction() {
                 
                 style = {{
                   position:"absolute",
-                  //marginLeft: "auto",
-                  //marginRight: "auto",
                   left:0,
                   right:0,
                   textAlign:"center",
@@ -152,18 +158,14 @@ function Prediction() {
                 }}/>
                 </div>
                 
-                <div class="col-md-8" >
+                <div className="col-md-8" >
                 <button type="button" className="btn btn-primary" onClick={getSong}>Change My Mood</button>
  
-                <iframe width="550" height="315" src={song} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="550" height="315" src={song} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
-                
-         
-          </div>
-                </div>
-            </section>
-            
-          
+              </div>
+            </div>
+          </section>  
         </div>
     );
 }
