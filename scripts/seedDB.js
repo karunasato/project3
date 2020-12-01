@@ -22,7 +22,9 @@ const songSeed = [
     title: "Happy Song",
     href: "https://www.youtube.com//embed/2zToEPpFEN8?autoplay=1",
   }
+
 ];
+
 db.Song
   .remove({})
   .then(() => db.Song.insertMany(songSeed))
