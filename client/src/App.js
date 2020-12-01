@@ -3,9 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams
 } from "react-router-dom";
 import LoginForm from "./pages/Auth/LoginForm";
 import SignupForm from "./pages/Auth/SignupForm";
@@ -16,7 +13,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AUTH from "./utils/AUTH";
 import Home from "./pages/Home";
 import Prediction from "./pages/Prediction/index";
-import { render } from "react-dom";
 
 
 function App() {
@@ -41,7 +37,6 @@ function App() {
   }, []);
 
   const logout = (event) => {
-    event.preventDefault();
 
     AUTH.logout().then((response) => {
       if (response.status === 200) {

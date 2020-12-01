@@ -22,20 +22,10 @@ function LoginForm({ login, register }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userObject.username)
-    console.log(userObject.password)
+
     login(userObject.username, userObject.password);
     setRedirectTo("/prediction");
   };
-  // const handleRegister = (event) => {
-  //   console.log(userObject.username)
-  //   console.log(userObject.password)
-  //   console.log(userObject.email)
-
-  //   event.preventDefault();
-  //   register(userObject.username, userObject.password, userObject.email);
-  //   setRedirectTo("/api/user/signup");
-  // };
 
   if (redirectTo) {
     return <Redirect to={{ pathname: redirectTo }} />;

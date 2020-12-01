@@ -27,30 +27,36 @@ function Prediction() {
     ]);
     
     const getSong = () => {
+<<<<<<< HEAD
       console.log('getting songs')
       
       
+=======
+
+>>>>>>> main
       if(pose === "thumbs_up"){
         //db.yourCollectionName.aggregate([{$sample:{size:1}}]);
         
         SONGS.getSongs("Happy Song").then((response) => {
          
           if (response.status === 200) {
+<<<<<<< HEAD
             console.log(response.data[0].href)
             //let random = 
             setSong(response.data[0].href)
             //setSong(response.data[any].href)
             //db.song.aggregate([{$sample:{size:1}}]);
             console.log(song)
+=======
+            setSong(response.data[0].href)
+>>>>>>> main
           }
         });
       }
       else if(pose === "thumbs_down"){
         SONGS.getSongs("Sad Song").then((response) => {
           if (response.status === 200) {
-            console.log(response.data[0].href)
             setSong(response.data[0].href)
-            console.log(song)
           }
         });
       }
@@ -58,7 +64,6 @@ function Prediction() {
 
     const loadHandpose = async () => {
       const handNet = await handpose.load()
-      console.log('handpose loaded')
       //loop and detect hands
       setInterval(() => {
         detectHands(handNet);
@@ -77,9 +82,6 @@ function Prediction() {
         const video = webcamRef.current.video;
         const videoWidth = webcamRef.current.video.videoWidth;
         const videoHeight = webcamRef.current.video.videoHeight;
-
-        console.log(window.innerWidth)
-
 
         //set video height and width
         webcamRef.current.video.width = videoWidth;
