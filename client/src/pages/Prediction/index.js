@@ -27,29 +27,13 @@ function Prediction() {
     ]);
     
     const getSong = () => {
-<<<<<<< HEAD
-      console.log('getting songs')
-      
-      
-=======
-
->>>>>>> main
       if(pose === "thumbs_up"){
         //db.yourCollectionName.aggregate([{$sample:{size:1}}]);
         
         SONGS.getSongs("Happy Song").then((response) => {
          
           if (response.status === 200) {
-<<<<<<< HEAD
-            console.log(response.data[0].href)
-            //let random = 
             setSong(response.data[0].href)
-            //setSong(response.data[any].href)
-            //db.song.aggregate([{$sample:{size:1}}]);
-            console.log(song)
-=======
-            setSong(response.data[0].href)
->>>>>>> main
           }
         });
       }
