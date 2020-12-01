@@ -41,7 +41,7 @@ const Navbarcomponent = (props) => {
     );
   } else {
     userStatus = (
-      <Link to="#" className="logout myLinks" onClick={props.logout}>
+      <Link to="/" className="logout myLinks" onClick={props.logout}>
         Logout
       </Link>
     );
