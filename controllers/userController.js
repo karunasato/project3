@@ -17,9 +17,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   register: (req, res) => {
-    console.log(req.body)
     const { username, password, email } = req.body;
-    console.log("WORKING! ", username, password, email)
     // ADD VALIDATION
     db.User.findOne({ username: username }, (err, userMatch) => {
       if (userMatch) {
