@@ -44,7 +44,7 @@ function Prediction() {
       //loop and detect hands
       setInterval(() => {
         detectHands(handNet);
-      }, 1000);
+      }, 250);
     }
 
     const detectHands = async (handNet) => {
@@ -73,9 +73,6 @@ function Prediction() {
 
         // Gesture detections
         if(hands.length > 0){
-
-
-
           const gesture = await GE.estimate(hands[0].landmarks,8);
 
           if(gesture.gestures !== undefined && gesture.gestures.length>0) {
@@ -89,9 +86,11 @@ function Prediction() {
           }
         }
 
-        //draw mesh
-        const ctx = canvasRef.current.getContext("2d");
-        drawHands(hands, ctx);
+        // draw mesh (uncomment this section to draw vectors over the hand)
+        // This will help ensure tensor flow is detecting the hand correctly
+        // Uses the draw.js in the utils foler
+          // const ctx = canvasRef.current.getContext("2d");
+          // drawHands(hands, ctx);
       }
     };
 
