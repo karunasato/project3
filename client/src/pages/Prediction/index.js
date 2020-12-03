@@ -28,19 +28,42 @@ function Prediction() {
     
     const getSong = () => {
       if(pose === "thumbs_up"){
-        //db.yourCollectionName.aggregate([{$sample:{size:1}}]);
-        
         SONGS.getSongs("Happy Song").then((response) => {
-         
           if (response.status === 200) {
-            setSong(response.data[0].href)
+            let random = Math.floor(Math.random() * (response.data.length - 1));
+            setSong(response.data[random].href)
           }
         });
       }
       else if(pose === "thumbs_down"){
         SONGS.getSongs("Sad Song").then((response) => {
           if (response.status === 200) {
-            setSong(response.data[0].href)
+            let random = Math.floor(Math.random() * (response.data.length - 1));
+            setSong(response.data[random].href)
+          }
+        });
+      }
+      else if(this.id="love"){
+        SONGS.getSongs("Love Song").then((response) => {
+          if (response.status === 200) {
+            let random = Math.floor(Math.random() * (response.data.length - 1));
+            setSong(response.data[random].href)
+          }
+        });
+      }
+      else if(this.onclick={getSong}){
+        SONGS.getSongs("Party Song").then((response) => {
+          if (response.status === 200) {
+            let random = Math.floor(Math.random() * (response.data.length - 1));
+            setSong(response.data[random].href)
+          }
+        });
+      }
+      else if(this.onclick={getSong}){
+        SONGS.getSongs("Rest Song").then((response) => {
+          if (response.status === 200) {
+            let random = Math.floor(Math.random() * (response.data.length - 1));
+            setSong(response.data[random].href)
           }
         });
       }
@@ -117,11 +140,15 @@ function Prediction() {
        
             <div className="container">
               <div className="row">
-               <div className="col-md-4" >
-                <p>I see a {pose} </p>
+               <div className="col-md-9" >
+               <iframe width="750" height="419" src={song} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+               </div>
+                
+                <div className="col-md-3" >
+                <p>I see a [   {pose}   ] ...? <button type="button" className="btn btn-primary" onClick={getSong}>Confirm</button></p>
                 <Webcam videoConstraints = {{
-                  width: 360,
-                  height: 280,
+                  width: 320,
+                  height: 270,
                 }}
                 ref = {webcamRef}
 
@@ -142,14 +169,12 @@ function Prediction() {
                   zIndex:9,
                 }}/>
                 </div>
-                
-                <div className="col-md-8" >
-                <button type="button" className="btn btn-primary" onClick={getSong}>Change My Mood</button>
- 
-                <iframe width="550" height="315" src={song} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                </div>
               </div>
-            </div>
+            </div><br></br><br></br><br></br><br></br><br></br>
+                <h6>Let's play more music</h6><br></br>
+                <button id="love" type="button" className="btn link" onClick={getSong}>Are you in love?</button><br></br>
+                <button id="party" type="button" className="btn link" onClick={getSong}>Are you in a party mood?</button><br></br>
+                <button id="rest" type="button" className="btn link" onClick={getSong}>Do you want some rest?</button>
           </section>  
         </div>
     );
