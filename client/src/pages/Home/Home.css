@@ -1,11 +1,3 @@
-.header {
-    color: #eea8a5;
-    font-size: 90px;
-    font-weight: bold;
-    font-size: 5.5rem;
-    margin-top: 200px;
-}
-
 #mood {
     color:#e774dc; 
     margin-left: 10px;
@@ -31,12 +23,7 @@ body {
     body {
       margin: 0 !important
     }
-
-    .header {
-      font-size: 9.5vw;
-    }
-
-  
+}
 
 /* EXPLANATION CONTAINER */
 /* .welcome-container {
@@ -61,4 +48,3 @@ body {
     width: 100vw;
 } */
 
-} 

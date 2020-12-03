@@ -13,8 +13,8 @@
 }
 
 iframe {
-    margin-left: 45px;
-    margin-top: 140px;
+    margin-right: 50px;
+    margin-top: 96px;
 }
 
 .btn {
@@ -27,6 +27,31 @@ p {
     font-weight: bold;
     font-size: 1.2rem;
     margin-top: 140px;
+}
+
+h6 {
+    color: #1e1c3d;
+    margin-left: 400px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#love {
+    margin-left: 580px;
+    background-color: rgb(241, 72, 72);
+    color: white;
+}
+
+#party {
+    margin-left: 680px;
+    background-color: #8f5a91;
+    color: white;
+}
+
+#rest {
+    margin-left: 780px;
+    background-color: rgb(92, 140, 180);
+    color: white;
 }
 
 @media only screen and (max-width:760px) {

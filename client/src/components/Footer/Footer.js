@@ -13,7 +13,7 @@ function Footer() {
           left: "0",
           width: "100%",
           flexShrink: "0",
-          marginTop: "400px",
+          marginTop: "330px",
           marginBottom: "0"
         }}
       >
