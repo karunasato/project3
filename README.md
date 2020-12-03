@@ -1,29 +1,32 @@
-# Create React Express App
+## Mood Swing
+[![React](https://img.shields.io/badge/Made%20With-React-purple.svg)](https://shields.io/) [![Mongoose](https://img.shields.io/badge/Utilizes-Mongoose-red.svg)](https://shields.io/)  
+ 
 
-## About This Boilerplate
+## Description
+This application, powered by React.JS and JavaScript, will play a song based on your mood. Make sure your camera is on, login, and give a "thumbs up" or "thumbs down", and music will start playing.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+<div align="center"><img src="client\images\Mood Swing Home.JPG" width="500" alt="main"></div>
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
 
-## Starting the app locally
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Table of Contents
+* [User Story](#userstory)
+* [Demo](#demo)
+* [Contributors](#contributors)
 
-```
-npm install
-```
 
-This should install node modules within the server and the client folder.
 
-After both installations complete, run the following command in your terminal:
+## User Story
 
-```
-npm start
-```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
+## Demo
+Visit https://ancient-river-69636.herokuapp.com/ to see demo.
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+
+
+## Contributors
+Birol Ezgin
+Kory Nelson
+Karuna Sato
+Mariana Robertson
