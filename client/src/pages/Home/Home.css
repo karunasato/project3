@@ -1,9 +1,56 @@
-#mood {
-    color:#e774dc; 
+/* .home-container {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+} */
+
+
+
+
+.header {
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw;
+    font-family: montserrat;
+    margin-top: 200px;
     margin-left: 10px;
+    width: 100%;
+    /* text-align: center; */
+    text-transform: uppercase;
+    color:white (56, 90, 56);
+    animation: pulse 7s linear infinite;
+    text-shadow: -4px 3px 0 #fff, -10px 7px 0 rgb(220, 220, 220);
+    
+
 }
 
+@keyframes pulse {
+    0% {
+        color: purple;
+    }
+    20% {
+        color: rgb(206, 83, 124);
+    }
+    40% {
+        color:blue;
+    }
+    60% {
+        color: green;
+    }
+    80% {
+        color:rgb(212, 212, 52);
+    }
+}
+
+
 #swing {
+    color: #eea8a5;
+    font-size: 90vw;
+    font-weight: bold;
+    font-size: 5.5rem;
+    margin-top: 200px;
     color: rgba(132, 173, 173, 0.973);
     margin-left: 17px;
 }
@@ -24,27 +71,3 @@ body {
       margin: 0 !important
     }
 }
-
-/* EXPLANATION CONTAINER */
-/* .welcome-container {
-    padding: 100px;
-    align-items: center;
-    text-align: center;   
-}
-#explanation {
-    color: #4D898C;
-    font-size:2vw;
-}
-#registerbiz {
-    color: #354959;
-    text-align: center;
-    font-weight: bold;
-    font-size: 10vw;
-}
-.container-sign-up {
-    background-color: #F8DACC;
-    text-align: center !important;
-    color: #354959;
-    width: 100vw;
-} */
-

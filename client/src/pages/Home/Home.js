@@ -1,6 +1,7 @@
 import React from "react";
+import LoginForm from "../Auth/LoginForm";
 import "./Home.css";
-
+import props from 'prop-types';
 
 
 
@@ -14,19 +15,20 @@ function Home() {
                     <span className="header" id="mood">
                         Mood
           </span>
-                    <span className="header" id="swing">
+                    <span className="headers" id="swing">
                         Swing
           </span>
                 </div>
                 <p id="feeling">How are you feeling?</p>
 
+                <div>
+                    <LoginForm login={props.login} signUpUser={props.signUpUser} />
+
+                </div>
+
             </section>
 
 
-
-
-
-            {/* </div> */}
         </main>
     );
 }

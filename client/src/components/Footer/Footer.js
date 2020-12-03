@@ -6,6 +6,8 @@ function Footer() {
     <div>
       <footer
         style={{
+          position: "relative",
+          height: "300px",
           backgroundColor: "#5B9098",
           color: "white",
           padding: "30px",
@@ -14,7 +16,8 @@ function Footer() {
           width: "100%",
           flexShrink: "0",
           marginTop: "330px",
-          marginBottom: "0"
+          marginBottom: "200px",
+          textAlign: "center"
         }}
       >
         <div className="footer-container">
