@@ -5,7 +5,7 @@ import Webcam from 'react-webcam';
 import {drawHands} from '../../utils/draw'
 import * as fp from 'fingerpose'
 import thumbsDownGesture from "./Gestures/thumbsDown";
-import ThumbsUpGesture from "./Gestures/thumbsUp";
+import thumbsUpGesture from "./Gestures/thumbsUp";
 import SONGS from "../../utils/SONGS"
 
 
@@ -23,11 +23,11 @@ function Prediction() {
       fp.Gestures.VictoryGesture,
       //fp.Gestures.ThumbsUpGesture,
       thumbsDownGesture,
-      ThumbsUpGesture,
+      thumbsUpGesture
     ]);
     
-    const getSong = () => {
-      if(pose === "thumbs_up"){
+    const getSong = (choice) => {
+      if(choice === "thumbs_up"){
         SONGS.getSongs("Happy Song").then((response) => {
           if (response.status === 200) {
             let random = Math.floor(Math.random() * (response.data.length - 1));
@@ -35,23 +35,25 @@ function Prediction() {
           }
         });
       }
-      else if(pose === "thumbs_down"){
+      else if(choice === "thumbs_down"){
         SONGS.getSongs("Sad Song").then((response) => {
           if (response.status === 200) {
             let random = Math.floor(Math.random() * (response.data.length - 1));
+
             setSong(response.data[random].href)
           }
         });
       }
-      else if(this.id="love"){
+      else if(choice === "Love Song"){
         SONGS.getSongs("Love Song").then((response) => {
           if (response.status === 200) {
             let random = Math.floor(Math.random() * (response.data.length - 1));
+
             setSong(response.data[random].href)
           }
         });
       }
-      else if(this.onclick={getSong}){
+      else if(choice === "Party Song"){
         SONGS.getSongs("Party Song").then((response) => {
           if (response.status === 200) {
             let random = Math.floor(Math.random() * (response.data.length - 1));
@@ -59,7 +61,7 @@ function Prediction() {
           }
         });
       }
-      else if(this.onclick={getSong}){
+      else if(choice === "Rest Song"){
         SONGS.getSongs("Rest Song").then((response) => {
           if (response.status === 200) {
             let random = Math.floor(Math.random() * (response.data.length - 1));
@@ -145,7 +147,8 @@ function Prediction() {
                </div>
                 
                 <div className="col-md-3" >
-                <p>I see a [   {pose}   ] ...? <button type="button" className="btn btn-primary" onClick={getSong}>Confirm</button></p>
+                <p>I see a [   {pose}   ] ...? </p>
+                <button type="button" className="btn btn-primary" onClick={() => getSong(pose)}>Confirm</button>
                 <Webcam videoConstraints = {{
                   width: 320,
                   height: 270,
@@ -172,9 +175,10 @@ function Prediction() {
               </div>
             </div><br></br><br></br><br></br><br></br><br></br>
                 <h6>Let's play more music</h6><br></br>
-                <button id="love" type="button" className="btn link" onClick={getSong}>Are you in love?</button><br></br>
-                <button id="party" type="button" className="btn link" onClick={getSong}>Are you in a party mood?</button><br></br>
-                <button id="rest" type="button" className="btn link" onClick={getSong}>Do you want some rest?</button>
+                <button id="love" type="button" className="btn btn-primary" onClick={() => getSong("Love Song")}>Are you in love?</button>
+                <button id="party" type="button" className="btn btn-primary" onClick={() => getSong("Party Song")}>Are you in a party mood?</button>
+                <button id="rest" type="button" className="btn btn-primary" onClick={() => getSong("Rest Song")}>Do you want some rest?</button>
+
           </section>  
         </div>
     );
