@@ -9,7 +9,6 @@ function LoginForm({ login, register }) {
   const [userObject, setUserObject] = useState({
     username: "",
     password: "",
-    email: ""
   });
   const [redirectTo, setRedirectTo] = useState(null);
 
@@ -58,14 +57,7 @@ function LoginForm({ login, register }) {
                     className="form__field"
                   />
                   {/* <label class="form__label" htmlFor="password">Password: </label> */}
-                  <Input
-                    type="email"
-                    name="email"
-                    value={userObject.email}
-                    onChange={handleChange}
-                    placeholder="email"
-                    className="form__field"
-                  />
+                  
                   <Link to="/signup">Register</Link>
                   <FormBtn onClick={handleSubmit}>LOGIN</FormBtn>
                 </form>
