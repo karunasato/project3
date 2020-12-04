@@ -5,6 +5,10 @@
     font-size: 5.5rem;
 }
 
+.col-md-3 {
+    margin-top: 140px;
+}
+
 .welcome {
     color: #4e6a7c;
     margin-left: 470px;
@@ -26,7 +30,7 @@ p {
     color: #6757a0;
     font-weight: bold;
     font-size: 1.2rem;
-    margin-top: 140px;
+    margin-top: 0px;
 }
 
 h6 {
