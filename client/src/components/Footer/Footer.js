@@ -7,7 +7,6 @@ function Footer() {
       <footer
         style={{
           position: "relative",
-          height: "300px",
           backgroundColor: "#5B9098",
           color: "white",
           padding: "30px",
