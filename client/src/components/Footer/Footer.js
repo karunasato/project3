@@ -15,8 +15,8 @@ function Footer() {
           left: "0",
           width: "100%",
           flexShrink: "0",
-          marginTop: "330px",
-          marginBottom: "200px",
+          marginTop: "346px",
+          marginBottom: "0",
           textAlign: "center"
         }}
       >
