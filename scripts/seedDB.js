@@ -128,11 +128,11 @@ const songSeed = [
   },
   {
     title: "Party Song",
-    href: "https://www.youtube.com//wnJ6LuUFpMo?autoplay=1",
+    href: "https://www.youtube.com//embed/wnJ6LuUFpMo?autoplay=1",
   },
   {
     title: "Party Song",
-    href: "https://www.youtube.com//embed/0KSOMA3QBU0?autoplay=1",
+    href: "https://www.youtube.com//embed/j2pPJywRGTk?autoplay=1",
   },
   {
     title: "Party Song",
