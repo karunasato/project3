@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import AUTH from "../../utils/AUTH";
 import "./Nav.css";
-import { Nav, Navbar, NavbarToggler, Collapse, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, NavbarBrand, DropdownItem} from 'reactstrap';
+import { Nav, Navbar, NavbarToggler, Collapse, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, NavbarBrand, DropdownItem} from 'reactstrap';
 const Navbarcomponent = (props) => {
   let greeting;
   let userStatus;
@@ -14,22 +14,22 @@ const Navbarcomponent = (props) => {
       }
     })
   }, []);
-  const [collapsed, setCollapsed] = useState(true);
-  const toggleNavbar = () => setCollapsed(!collapsed);
+  // const [collapsed, setCollapsed] = useState(true);
+  // const toggleNavbar = () => setCollapsed(!collapsed);
   if (props.user === null || props.user === undefined) {
     greeting = <p id="hello">Hello guest</p>;
   } else if (props.user) {
     greeting = (
       <Fragment>
         Welcome, <strong>{props.user}</strong><br></br>
-        Hello from the prediction page 
+       
       </Fragment>
     );
   } else if (props.user.username || props.user === undefined) {
     greeting = (
       <Fragment>
         Welcome back, <strong>{props.user.username} </strong><br></br>
-        Hello from the prediction page 
+      
       </Fragment>
     );
   }
@@ -54,12 +54,10 @@ const Navbarcomponent = (props) => {
           <img src="http://1.bp.blogspot.com/-qnIxcGQGUoc/VXN3Jr21hzI/AAAAAAAAWz8/pAE-zXOVKyA/s1600/Mood-Swing.png" alt="logo"></img>
         </NavbarBrand>
 
-        <NavbarToggler onClick={toggleNavbar} />
-        <Collapse isOpen={!collapsed} navbar>
+        {/* <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+        <Collapse isOpen={!collapsed} navbar> */}
           <Nav className="ml-auto p-2" navbar>
-            <NavItem>
-
-            </NavItem>
+           
 
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -72,7 +70,7 @@ const Navbarcomponent = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-        </Collapse>
+        {/* </Collapse> */}
       </Navbar>
     </header>
   );

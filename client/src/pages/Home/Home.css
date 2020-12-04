@@ -1,10 +1,8 @@
-/* .home-container {
+.header-container {
     text-align: center;
     width: 100%;
     height: 100%;
-} */
-
-
+}
 
 
 .header {
@@ -23,7 +21,6 @@
     animation: pulse 7s linear infinite;
     text-shadow: -4px 3px 0 #fff, -10px 7px 0 rgb(220, 220, 220);
     
-
 }
 
 @keyframes pulse {
@@ -46,13 +43,16 @@
 
 
 #swing {
-    color: #eea8a5;
-    font-size: 90vw;
+    
+    font-size: 4vw;
     font-weight: bold;
-    font-size: 5.5rem;
     margin-top: 200px;
+    margin-left: 10px;
+    width: 100%;
     color: rgba(132, 173, 173, 0.973);
-    margin-left: 17px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 body {
@@ -60,8 +60,9 @@ body {
 }
 
 #feeling {
-    color: rgba(17, 80, 119, 0.973);
-    font-size: large;
+    color: rgba(128, 127, 133, 0.973);
+    font-size: 1vw;
+    font-style: italic;
     margin-left: 17px;
     margin-top: 20px;
 }
