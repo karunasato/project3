@@ -10,7 +10,7 @@
 }
 
 .welcome {
-    color: #4e6a7c;
+    color: white;
     margin-left: 470px;
     font-weight: bold;
     font-size: 1.5rem;
@@ -22,15 +22,20 @@ iframe {
 }
 
 .btn {
-    background-color:   rgb(80, 140, 150, 0.973);
+    background-color:  transparent; 
     margin-bottom: 20px;
 }
 
 p {
-    color: #6757a0;
+    color: white;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 0px;
+}
+
+h3 {
+    color: white;
+    font-weight: bold;
 }
 
 h6 {

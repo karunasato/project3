@@ -1,8 +1,16 @@
+
+.container{
+    background-image: url(./homeBackground.jpg) no-repeat center center fixed;
+   
+  }
+
+
 .header-container {
     text-align: center;
     width: 100%;
     height: 100%;
 }
+
 
 
 .header {
@@ -56,19 +64,30 @@
 }
 
 body {
-    background-color: #f7ebf3;   
+    background: url(./homeBackground.jpg) no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  
 }
+
+
 
 #feeling {
     color: rgba(128, 127, 133, 0.973);
     font-size: 1vw;
     font-style: italic;
     margin-left: 17px;
-    margin-top: 20px;
+    margin-top: 300px; 
+    
 }
+
+
 
 @media only screen and (max-width:760px) {
     body {
       margin: 0 !important
     }
+
+    
 }
