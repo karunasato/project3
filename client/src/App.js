@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AUTH from "./utils/AUTH";
 import Home from "./pages/Home";
 import Prediction from "./pages/Prediction/index";
-
+import Collapse from "./components/Collapse";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -63,6 +63,7 @@ function App() {
       {loggedIn && (
         <div>
           <Nav user={user} logout={logout} />
+          <Collapse />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/prediction" component={Prediction} />
@@ -76,6 +77,7 @@ function App() {
       {!loggedIn && (
         <div className="auth-wrapper">
           <Nav user={user} logout={logout} />
+          <Collapse />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={() => <LoginForm login={login} />} />
