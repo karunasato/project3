@@ -16,6 +16,7 @@ function Prediction() {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
     const[pose, setPose] = useState(null);
+    const[predictText, setPredictText] = useState(null);
     const[song, setSong] = useState(null);
     const[voiceCommand, setVoiceCommand] = useState(null);
   
@@ -37,6 +38,15 @@ function Prediction() {
       }
       else if(choice === "thumbs_down"){
         SONGS.getSongs("Sad Song").then((response) => {
+          if (response.status === 200) {
+            let random = Math.floor(Math.random() * (response.data.length - 1));
+
+            setSong(response.data[random].href)
+          }
+        });
+      }
+      else if(choice === "middle_finger"){
+        SONGS.getSongs("Middle Finger").then((response) => {
           if (response.status === 200) {
             let random = Math.floor(Math.random() * (response.data.length - 1));
 
@@ -76,16 +86,17 @@ function Prediction() {
     const loadHandpose = async () => {
       console.log("loading hand pose")
       const handNet = await handpose.load()
-      let recognizer;
-      recognizer = speechCommands.create('BROWSER_FFT');
-      await recognizer.ensureModelLoaded();
-      const words = recognizer.wordLabels();
-      predictWord(words, recognizer);
+      // Coment out voice recognition for now
+      // let recognizer;
+      // recognizer = speechCommands.create('BROWSER_FFT');
+      // await recognizer.ensureModelLoaded();
+      // const words = recognizer.wordLabels();
+      // predictWord(words, recognizer);
 
       //loop and detect hands
       setInterval(() => {
         detectHands(handNet);
-      }, 1000);
+      }, 500);
     }
 
     function predictWord(words, recognizer) {
@@ -137,6 +148,19 @@ function Prediction() {
               Math.max.apply(null, confidence)
             );
             setPose(gesture.gestures[maxConfidence].name)
+            if(gesture.gestures[maxConfidence].name === "thumbs_up"){
+              setPredictText("Can I play you some happy songs?")
+            }
+            else if(gesture.gestures[maxConfidence].name === "thumbs_down"){
+              setPredictText("Can I play you some sad songs?")
+            }
+            else if(gesture.gestures[maxConfidence].name === "middle_finger"){
+              setPredictText("Yikes, I know what to play for you")
+            }
+          }
+          else{
+            setPose(null)
+            setPredictText(null)
           }
         }
 
@@ -172,8 +196,8 @@ function Prediction() {
                </div>
                 
                 <div className="col-md-3" >
-                <p>I see a [   {pose}   ] ...? </p>
-                <p> You just said "{voiceCommand}"</p>
+                <p>{predictText}</p>
+                {/* <p> You just said "{voiceCommand}"</p> */}
                 <button type="button" className="btn btn-primary" onClick={() => getSong(pose)}>Confirm</button>
                 <Webcam videoConstraints = {{
                   width: 320,
