@@ -16,7 +16,7 @@ function Footer() {
           flexShrink: "0",
 
 
-          marginTop: "346px",
+          marginTop: "250px",
           marginBottom: "0",
 
           textAlign: "center"
