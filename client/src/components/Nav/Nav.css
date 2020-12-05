@@ -7,6 +7,40 @@
     width: auto;
     align-items: left;
   }
+
+  #mood  {
+    height: 50px;
+    width: auto;
+    align-items: left;
+    /* transform: translate(-50%, -50%)
+    text-transform: uppercase;
+    color:white (56, 90, 56); */
+    animation: pulse 7s linear infinite;
+    /* text-shadow: -4px 3px 0 #fff, -10px 7px 0 rgb(220, 220, 220); */
+    
+}
+
+@keyframes pulse {
+    0% {
+        color: purple;
+    }
+    20% {
+        color: rgb(206, 83, 124);
+    }
+    40% {
+        color:blue;
+    }
+    60% {
+        color: green;
+    }
+    80% {
+        color:rgb(212, 212, 52);
+    }
+}
+
+
+
+  
   .dropdown-toggle nav-link {
     color: white;
   }

@@ -6,38 +6,27 @@ import "./Home.css";
 
 
 function Home() {
-   
+
     return (
 
-        <div  className="container">
-    
-   
+        <div className="container">
 
-        <main>
-           
+            <main>
 
-            <section className="header-container">
-                <div className="mood-swing" size="size md-6">
-                    <span className="header" id="mood">
-                        Mood
+                <section className="header-container">
+                    <div className="mood-swing" size="size md-6">
+                        <span className="header" id="feeling">
+                            How are you feeling?
           </span>
-                    <span className="headers" id="swing">
-                        Swing
-          </span>
-                </div>
-               
-                <p id="feeling">How are you feeling?</p>
-
-
-  
-      
-
-
+                    </div>
+                       
             </section>
        
 
         </main>
         </div>
+        
+
     );
 }
 

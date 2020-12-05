@@ -51,7 +51,9 @@ const Navbarcomponent = (props) => {
     <header>
       <Navbar id="navbar-border" color="#5b9098" light expand="md">
         <NavbarBrand href="/" className="navbar-brand">
-          <img src="http://1.bp.blogspot.com/-qnIxcGQGUoc/VXN3Jr21hzI/AAAAAAAAWz8/pAE-zXOVKyA/s1600/Mood-Swing.png" alt="logo"></img>
+       
+           <p id="mood"> Mood Swing</p>
+          {/* <img src="http://1.bp.blogspot.com/-qnIxcGQGUoc/VXN3Jr21hzI/AAAAAAAAWz8/pAE-zXOVKyA/s1600/Mood-Swing.png" alt="logo"></img> */}
         </NavbarBrand>
 
        

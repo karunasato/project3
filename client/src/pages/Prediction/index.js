@@ -156,14 +156,14 @@ function Prediction() {
     return (
         <div>
           <section className="header-container">
-              <div className="mood-swing" size="size md-6">
+              {/* <div className="mood-swing" size="size md-6">
                   <span className="header" id="mood">
                       Mood
                   </span>
                   <span className="header" id="swing">
                       Swing
                   </span>
-              </div>
+              </div> */}
        
             <div className="container">
               <div className="row">
