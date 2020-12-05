@@ -205,10 +205,15 @@ const songSeed = [
   {
     title: "Rest Song",
     href: "https://www.youtube.com//embed/8Aab8wRrCQQ?autoplay=1",
+  },
+  {
+    title: "Middle Finger",
+    href: "https://www.youtube.com/embed/pc0mxOXbWIU?autoplay=1",
+  },
+  {
+    title: "Middle Finger",
+    href: "https://www.youtube.com/embed/yMlKJGKyoCo?autoplay=1",
   }
-
-
-
 ];
 
 db.Song
