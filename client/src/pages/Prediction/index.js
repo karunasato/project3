@@ -6,6 +6,8 @@ import {drawHands} from '../../utils/draw'
 import * as fp from 'fingerpose'
 import thumbsDownGesture from "./Gestures/thumbsDown";
 import thumbsUpGesture from "./Gestures/thumbsUp";
+import middleFingerGesture from "./Gestures/middleFinger"
+import nuetralGesture from "./Gestures/nuetral"
 import SONGS from "../../utils/SONGS"
 import * as speechCommands from '@tensorflow-models/speech-commands';
 
@@ -18,10 +20,10 @@ function Prediction() {
     const[voiceCommand, setVoiceCommand] = useState(null);
   
     const GE = new fp.GestureEstimator([
-      fp.Gestures.VictoryGesture,
-      //fp.Gestures.ThumbsUpGesture,
       thumbsDownGesture,
-      thumbsUpGesture
+      thumbsUpGesture,
+      middleFingerGesture,
+      nuetralGesture,
     ]);
     
     const getSong = (choice) => {
@@ -83,7 +85,7 @@ function Prediction() {
       //loop and detect hands
       setInterval(() => {
         detectHands(handNet);
-      }, 1500);
+      }, 1000);
     }
 
     function predictWord(words, recognizer) {
@@ -93,7 +95,7 @@ function Prediction() {
         scores = Array.from(scores).map((s, i) => ({score: s, word: words[i]}));
         // Find the most probable word.
         scores.sort((s1, s2) => s2.score - s1.score);
-        console.log(scores)
+
         setVoiceCommand(scores[0].word);
       }, {probabilityThreshold: 0.90});
      }
