@@ -198,7 +198,9 @@ function Prediction() {
                 <div className="col-md-3" >
                 <p>{predictText}</p>
                 {/* <p> You just said "{voiceCommand}"</p> */}
+                {predictText && (
                 <button type="button" className="btn btn-primary" onClick={() => getSong(pose)}>Confirm</button>
+                )}
                 <Webcam videoConstraints = {{
                   width: 320,
                   height: 270,
