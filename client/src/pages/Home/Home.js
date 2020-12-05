@@ -4,9 +4,15 @@ import "./Home.css";
 
 
 
+
 function Home() {
    
     return (
+
+        <div  className="container">
+    
+   
+
         <main>
            
 
@@ -19,13 +25,19 @@ function Home() {
                         Swing
           </span>
                 </div>
+               
                 <p id="feeling">How are you feeling?</p>
 
 
-            </section>
+  
+      
 
+
+            </section>
+       
 
         </main>
+        </div>
     );
 }
 

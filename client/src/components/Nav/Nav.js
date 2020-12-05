@@ -14,10 +14,10 @@ const Navbarcomponent = (props) => {
       }
     })
   }, []);
-  // const [collapsed, setCollapsed] = useState(true);
-  // const toggleNavbar = () => setCollapsed(!collapsed);
+
   if (props.user === null || props.user === undefined) {
     greeting = <p id="hello">Hello guest</p>;
+  
   } else if (props.user) {
     greeting = (
       <Fragment>
@@ -54,14 +54,13 @@ const Navbarcomponent = (props) => {
           <img src="http://1.bp.blogspot.com/-qnIxcGQGUoc/VXN3Jr21hzI/AAAAAAAAWz8/pAE-zXOVKyA/s1600/Mood-Swing.png" alt="logo"></img>
         </NavbarBrand>
 
-        {/* <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-        <Collapse isOpen={!collapsed} navbar> */}
+       
           <Nav className="ml-auto p-2" navbar>
            
 
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                <div style={{ textTransform: 'uppercase', color: "#354959" }}>{greeting}</div>
+                <div style={{ textTransform: 'uppercase', color: "#FFFFFF" }}>{greeting}</div>
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
@@ -70,7 +69,6 @@ const Navbarcomponent = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-        {/* </Collapse> */}
       </Navbar>
     </header>
   );

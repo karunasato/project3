@@ -7,6 +7,9 @@
     width: auto;
     align-items: left;
   }
+  .dropdown-toggle nav-link {
+    color: white;
+  }
   #navbar-border {
     border-bottom: 6px solid #ae7eb8;
     margin-bottom: 30px;
