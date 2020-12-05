@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import "./index.css";
 import * as handpose from '@tensorflow-models/handpose';
 import Webcam from 'react-webcam';
@@ -7,9 +7,7 @@ import * as fp from 'fingerpose'
 import thumbsDownGesture from "./Gestures/thumbsDown";
 import thumbsUpGesture from "./Gestures/thumbsUp";
 import SONGS from "../../utils/SONGS"
-
-
-
+import * as speechCommands from '@tensorflow-models/speech-commands';
 
 
 function Prediction() {
@@ -17,8 +15,8 @@ function Prediction() {
     const canvasRef = useRef(null);
     const[pose, setPose] = useState(null);
     const[song, setSong] = useState(null);
-    
-
+    const[voiceCommand, setVoiceCommand] = useState(null);
+  
     const GE = new fp.GestureEstimator([
       fp.Gestures.VictoryGesture,
       //fp.Gestures.ThumbsUpGesture,
@@ -71,13 +69,35 @@ function Prediction() {
       }
     }
 
+
+
     const loadHandpose = async () => {
+      console.log("loading hand pose")
       const handNet = await handpose.load()
+      let recognizer;
+      recognizer = speechCommands.create('BROWSER_FFT');
+      await recognizer.ensureModelLoaded();
+      const words = recognizer.wordLabels();
+      predictWord(words, recognizer);
+
       //loop and detect hands
       setInterval(() => {
         detectHands(handNet);
-      }, 250);
+      }, 1500);
     }
+
+    function predictWord(words, recognizer) {
+      // Array of words that the recognizer is trained to recognize.
+      recognizer.listen(({scores}) => {
+        // Turn scores into a list of (score,word) pairs.
+        scores = Array.from(scores).map((s, i) => ({score: s, word: words[i]}));
+        // Find the most probable word.
+        scores.sort((s1, s2) => s2.score - s1.score);
+        console.log(scores)
+        setVoiceCommand(scores[0].word);
+      }, {probabilityThreshold: 0.90});
+     }
+     
 
     const detectHands = async (handNet) => {
       // Check data is available
@@ -126,7 +146,10 @@ function Prediction() {
       }
     };
 
-    loadHandpose();
+    useEffect(() => {
+      loadHandpose();
+    },[])
+
 
     return (
         <div>
@@ -148,6 +171,7 @@ function Prediction() {
                 
                 <div className="col-md-3" >
                 <p>I see a [   {pose}   ] ...? </p>
+                <p> You just said "{voiceCommand}"</p>
                 <button type="button" className="btn btn-primary" onClick={() => getSong(pose)}>Confirm</button>
                 <Webcam videoConstraints = {{
                   width: 320,
