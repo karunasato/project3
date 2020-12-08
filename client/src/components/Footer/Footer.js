@@ -6,10 +6,9 @@ function Footer() {
     <div>
       <footer
         style={{
-          position: "relative",
+          position: "fixed",
           backgroundColor: "clear",
           color: "white",
-          padding: "30px",
           bottom: "0",
           left: "0",
           width: "100%",

@@ -1,4 +1,3 @@
-import { erf } from "@tensorflow/tfjs";
 import * as fp from "fingerpose";
 
 const nuetralGesture = new fp.GestureDescription('nuetral');

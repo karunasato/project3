@@ -192,7 +192,7 @@ function Prediction() {
             <div className="container">
               <div className="row">
                <div className="col-md-9" >
-               <iframe width="750" height="419" src={song} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+               <iframe title = "videoOutput"width="750" height="419" src={song} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                </div>
                 
                 <div className="col-md-3" >
@@ -225,8 +225,8 @@ function Prediction() {
                 }}/>
                 </div>
               </div>
-            </div><br></br><br></br><br></br><br></br><br></br>
-                <h6>Let's play more music</h6><br></br>
+            </div>
+                <h6>Let's play more music</h6>
                 <button id="love" type="button" className="btn btn-primary" onClick={() => getSong("Love Song")}>Are you in love?</button>
                 <button id="party" type="button" className="btn btn-primary" onClick={() => getSong("Party Song")}>Are you in a party mood?</button>
                 <button id="rest" type="button" className="btn btn-primary" onClick={() => getSong("Rest Song")}>Do you want some rest?</button>
