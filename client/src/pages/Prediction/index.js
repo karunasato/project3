@@ -150,7 +150,7 @@ function Prediction() {
 
         // Gesture detections
         if(hands.length > 0){
-          const gesture = await GE.estimate(hands[0].landmarks,8);
+          const gesture = await GE.estimate(hands[0].landmarks,9.5);
 
           if(gesture.gestures !== undefined && gesture.gestures.length>0) {
             const confidence = gesture.gestures.map(
