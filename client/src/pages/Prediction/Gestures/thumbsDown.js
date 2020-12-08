@@ -20,6 +20,9 @@ thumbsDownGesture.addCurl(fp.Finger.Index, fp.FingerCurl.FullCurl, 1.0);
 thumbsDownGesture.addCurl(fp.Finger.Middle, fp.FingerCurl.FullCurl, 1.0);
 thumbsDownGesture.addCurl(fp.Finger.Ring, fp.FingerCurl.FullCurl, 1.0);
 thumbsDownGesture.addCurl(fp.Finger.Pinky, fp.FingerCurl.FullCurl, 1.0);
+thumbsDownGesture.addCurl(fp.Finger.Index, fp.FingerCurl.NoCurl, -1.0);
+thumbsDownGesture.addCurl(fp.Finger.Ring, fp.FingerCurl.NoCurl, -1.0);
+thumbsDownGesture.addCurl(fp.Finger.Pinky, fp.FingerCurl.NoCurl, -1.0);
 // decrease count for these things
 thumbsDownGesture.addCurl(fp.Finger.Middle, fp.FingerCurl.NoCurl, -1.0);
 thumbsDownGesture.addDirection(fp.Finger.Middle, fp.FingerCurl.VerticalUp, -1.0);
