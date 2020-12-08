@@ -7,17 +7,13 @@ function Footer() {
       <footer
         style={{
           position: "fixed",
-          backgroundColor: "clear",
+          backgroundColor: "black",
           color: "white",
           bottom: "0",
           left: "0",
           width: "100%",
           flexShrink: "0",
-
-
-          marginTop: "250px",
-          marginBottom: "0",
-
+          padding:"25px",
           textAlign: "center"
         }}
       >
