@@ -14,9 +14,10 @@ export default ()=>
 
      <h3 style = {{marginLeft: 25 }}>Mood Swing plays songs based on your mood!</h3> 
      <br/>
-      <p style = {{marginLeft: 25, fontSize:15 }} >👍 Give a webcam a thumbs-up to play happy songs!</p>
+      <p style = {{marginLeft: 25, fontSize:15 }} >👍 Give the webcam a thumbs-up to play happy songs!</p>
       <p style = {{marginLeft: 25, fontSize:15 }} >👎 Give the webcam a  thumbs-down to play sad songs</p>
-      <p style = {{marginLeft: 25, fontSize:15 }} > Need more moods?  Click the buttons below the camera to set the coorespondig mood</p>
+      <p style = {{marginLeft: 25, fontSize:15 }} > Need more moods?  Click the buttons below to set the coorespondig mood</p>
+      <p style = {{marginLeft: 25, fontSize:15 }} > Can you guess the secret gesture??</p>
     </div>
   </div>
 

@@ -102,7 +102,9 @@ function Prediction() {
       // await recognizer.ensureModelLoaded();
       // const words = recognizer.wordLabels();
       // predictWord(words, recognizer);
-
+      setInterval(() => {
+        setPoseArray(poseArray.length = 0);
+      }, 10000);
       //loop and detect hands
       setInterval(() => {
         detectHands(handNet);
