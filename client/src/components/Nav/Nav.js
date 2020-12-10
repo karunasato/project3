@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import AUTH from "../../utils/AUTH";
 import "./Nav.css";
-import { Nav, Navbar, NavbarToggler, Collapse, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, NavbarBrand, DropdownItem} from 'reactstrap';
+import { Nav, Navbar, UncontrolledDropdown, DropdownToggle, DropdownMenu, NavbarBrand, DropdownItem} from 'reactstrap';
 const Navbarcomponent = (props) => {
   let greeting;
   let userStatus;
@@ -16,19 +16,23 @@ const Navbarcomponent = (props) => {
   }, []);
 
   if (props.user === null || props.user === undefined) {
-    greeting = <p id="hello">Hello guest</p>;
+    greeting = (
+      <Fragment>
+        <strong style = {{fontSize:25 , color: "whitesmoke"}} id="hello">Hello Guest</strong>
+      </Fragment>
+    );
   
   } else if (props.user) {
     greeting = (
-      <Fragment>
-        Welcome, <strong>{props.user}</strong><br></br>
+      <Fragment >
+        <strong style = {{fontSize:25 , color: "whitesmoke"}}>Welcome, {props.user}</strong>
        
       </Fragment>
     );
   } else if (props.user.username || props.user === undefined) {
     greeting = (
       <Fragment>
-        Welcome back, <strong>{props.user.username} </strong><br></br>
+        <strong style = {{fontSize:25 , color: "whitesmoke"}}> Welcome back, {props.user.username} </strong>
       
       </Fragment>
     );
@@ -61,8 +65,9 @@ const Navbarcomponent = (props) => {
            
 
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                <div style={{ textTransform: 'uppercase', color: "#FFFFFF" }}>{greeting}</div>
+              {greeting}
+              <DropdownToggle style = {{color: "whitesmoke"}} nav caret>
+                MENU
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>

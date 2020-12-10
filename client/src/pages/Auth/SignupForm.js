@@ -47,7 +47,7 @@ function SignupForm() {
                     <Row>
                         <Col size="md-3"></Col>
                         <Col size="md-6">
-                            <div className="hello">
+                            <div style = {{color: "whitesmoke"}} className="hello">
                                 Register here!
               </div>
                             <form style={{ marginTop: 10 }}>

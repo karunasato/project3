@@ -5,18 +5,19 @@ export default ()=>
 <div className="accordion" id="accordionExample">
 
     <h2 className="mb-0">
-      <button className="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button style = {{ backgroundColor:"black", color:"whitesmoke"}} color = "white "className="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         How Does it Work?
       </button>
     </h2>
 
-  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+  <div style = {{ backgroundColor:"black", maxWidth: "750px" }} id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 
-     <h3>Mood Swing plays songs based on your mood!</h3> 
+     <h3 style = {{marginLeft: 25 }}>Mood Swing plays songs based on your mood!</h3> 
      <br/>
-      <p>Are you happy?- Give a thumbs-up on the webcam and we'll play you happy songs!</p>
-      <p>Feeling sad?- Show a thumbs-down and we will play you sad songs... but don't worry there's some additional features that might help your mood.</p>
-      <p>Are you in love? Partying? Needing some rest?- click on the buttons below the webcam and you'll get songs that will coordinate.</p>
+      <p style = {{marginLeft: 25, fontSize:15 }} >👍 Give the webcam a thumbs-up to play happy songs!</p>
+      <p style = {{marginLeft: 25, fontSize:15 }} >👎 Give the webcam a  thumbs-down to play sad songs</p>
+      <p style = {{marginLeft: 25, fontSize:15 }} > Need more moods?  Click the buttons below to set the coorespondig mood</p>
+      <p style = {{marginLeft: 25, fontSize:15 }} > Can you guess the secret gesture??</p>
     </div>
   </div>
 

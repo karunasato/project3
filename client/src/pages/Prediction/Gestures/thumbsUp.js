@@ -1,4 +1,3 @@
-import { erf } from "@tensorflow/tfjs";
 import * as fp from "fingerpose";
 
 const thumbsUpGesture = new fp.GestureDescription('thumbs_up');
@@ -21,6 +20,9 @@ thumbsUpGesture.addCurl(fp.Finger.Index, fp.FingerCurl.FullCurl, 1.0);
 thumbsUpGesture.addCurl(fp.Finger.Middle, fp.FingerCurl.FullCurl, 1.0);
 thumbsUpGesture.addCurl(fp.Finger.Ring, fp.FingerCurl.FullCurl, 1.0);
 thumbsUpGesture.addCurl(fp.Finger.Pinky, fp.FingerCurl.FullCurl, 1.0);
+thumbsUpGesture.addCurl(fp.Finger.Index, fp.FingerCurl.NoCurl, -1.0);
+thumbsUpGesture.addCurl(fp.Finger.Ring, fp.FingerCurl.NoCurl, -1.0);
+thumbsUpGesture.addCurl(fp.Finger.Pinky, fp.FingerCurl.NoCurl, -1.0);
 //decrease score for these 
 thumbsUpGesture.addCurl(fp.Finger.Middle, fp.FingerCurl.NoCurl, -1.0);
 thumbsUpGesture.addDirection(fp.Finger.Middle, fp.FingerCurl.VerticalUp, -1.0);

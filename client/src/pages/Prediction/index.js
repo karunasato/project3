@@ -19,6 +19,8 @@ function Prediction() {
     const[predictText, setPredictText] = useState(null);
     const[song, setSong] = useState(null);
     const[voiceCommand, setVoiceCommand] = useState(null);
+    const [poseArray, setPoseArray]  =useState([]);
+
   
     const GE = new fp.GestureEstimator([
       thumbsDownGesture,
@@ -50,6 +52,14 @@ function Prediction() {
           if (response.status === 200) {
             let random = Math.floor(Math.random() * (response.data.length - 1));
 
+            setSong(response.data[random].href)
+          }
+        });
+      }
+      else if(choice === "nuetral"){
+        SONGS.getSongs("Rest Song").then((response) => {
+          if (response.status === 200) {
+            let random = Math.floor(Math.random() * (response.data.length - 1));
             setSong(response.data[random].href)
           }
         });
@@ -92,7 +102,9 @@ function Prediction() {
       // await recognizer.ensureModelLoaded();
       // const words = recognizer.wordLabels();
       // predictWord(words, recognizer);
-
+      setInterval(() => {
+        setPoseArray(poseArray.length = 0);
+      }, 10000);
       //loop and detect hands
       setInterval(() => {
         detectHands(handNet);
@@ -138,7 +150,7 @@ function Prediction() {
 
         // Gesture detections
         if(hands.length > 0){
-          const gesture = await GE.estimate(hands[0].landmarks,8);
+          const gesture = await GE.estimate(hands[0].landmarks,9.5);
 
           if(gesture.gestures !== undefined && gesture.gestures.length>0) {
             const confidence = gesture.gestures.map(
@@ -157,6 +169,25 @@ function Prediction() {
             else if(gesture.gestures[maxConfidence].name === "middle_finger"){
               setPredictText("Yikes, I know what to play for you")
             }
+            else if(gesture.gestures[maxConfidence].name === "nuetral"){
+              setPredictText("Would you like to relax?")
+            }
+
+            setPoseArray(poseArray.push(gesture.gestures.[maxConfidence].name))
+
+            if(poseArray.length >2){
+
+                if(poseArray[0]===poseArray[1] && poseArray[1]===poseArray[2]) {
+                  console.log(`${poseArray[0]} accepted`)
+                  getSong(poseArray[2])
+                  setPoseArray(poseArray.length = 0)
+                }else if(poseArray[0]!==poseArray[1] || poseArray[1]!==poseArray[2]){
+                  console.log('they dont match')
+                  setPoseArray(poseArray.length = 0)
+                }
+            }
+
+
           }
           else{
             setPose(null)
@@ -192,18 +223,14 @@ function Prediction() {
             <div className="container">
               <div className="row">
                <div className="col-md-9" >
-               <iframe width="750" height="419" src={song} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+               <iframe title = "videoOutput"width="750" height="419" src={song} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                </div>
                 
                 <div className="col-md-3" >
-                <p>{predictText}</p>
-                {/* <p> You just said "{voiceCommand}"</p> */}
-                {predictText && (
-                <button type="button" className="btn btn-primary" onClick={() => getSong(pose)}>Confirm</button>
-                )}
                 <Webcam videoConstraints = {{
                   width: 320,
                   height: 270,
+                  paddingTop: 50,
                 }}
                 ref = {webcamRef}
 
@@ -225,12 +252,17 @@ function Prediction() {
                 }}/>
                 </div>
               </div>
-            </div><br></br><br></br><br></br><br></br><br></br>
-                <h6>Let's play more music</h6><br></br>
+            </div>
+            <p>{predictText}</p>
+                {/* <p> You just said "{voiceCommand}"</p> */}
+                {predictText && (
+                <button type="button" className="btn btn-primary" onClick={() => getSong(pose)}>Confirm</button>
+                )}
+                <h6>Let's play more music</h6>
                 <button id="love" type="button" className="btn btn-primary" onClick={() => getSong("Love Song")}>Are you in love?</button>
                 <button id="party" type="button" className="btn btn-primary" onClick={() => getSong("Party Song")}>Are you in a party mood?</button>
                 <button id="rest" type="button" className="btn btn-primary" onClick={() => getSong("Rest Song")}>Do you want some rest?</button>
-
+                <br></br>
           </section>  
         </div>
     );

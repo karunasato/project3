@@ -36,7 +36,7 @@ function LoginForm({ login, register }) {
             <Row>
               <Col size="md-3"></Col>
               <Col size="md-6">
-                <div className="title">Login to Mood Swing</div>
+                <div style = {{color: "whitesmoke"}} className="title">Login to Mood Swing</div>
                 <form>
                   {/* <label class="form__label" htmlFor="username">Username: </label> */}
                   <Input

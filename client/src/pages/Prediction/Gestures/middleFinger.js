@@ -1,4 +1,3 @@
-import { erf } from "@tensorflow/tfjs";
 import * as fp from "fingerpose";
 
 const middleFingerGesture = new fp.GestureDescription('middle_finger');
@@ -13,5 +12,11 @@ middleFingerGesture.addDirection(fp.Finger.Middle, fp.FingerDirection.DiagonalUp
 middleFingerGesture.addCurl(fp.Finger.Index, fp.FingerCurl.FullCurl, 1.0);
 middleFingerGesture.addCurl(fp.Finger.Ring, fp.FingerCurl.FullCurl, 1.0);
 middleFingerGesture.addCurl(fp.Finger.Pinky, fp.FingerCurl.FullCurl, 1.0);
+middleFingerGesture.addCurl(fp.Finger.Index, fp.FingerCurl.NoCurl, -1.0);
+middleFingerGesture.addCurl(fp.Finger.Ring, fp.FingerCurl.NoCurl, -1.0);
+middleFingerGesture.addCurl(fp.Finger.Pinky, fp.FingerCurl.NoCurl,-1.0);
+middleFingerGesture.addCurl(fp.Finger.Index, fp.FingerCurl.HalfCurl, -1.0);
+middleFingerGesture.addCurl(fp.Finger.Ring, fp.FingerCurl.HalfCurl, -1.0);
+middleFingerGesture.addCurl(fp.Finger.Pinky, fp.FingerCurl.HalfCurl,-1.0);
 
 export default middleFingerGesture;
